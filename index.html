@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Novel Reader</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -16,7 +16,7 @@
             <p>Enter password to read:</p>
             <input type="password" id="password-input" placeholder="Password...">
             <button onclick="checkPassword()">Unlock</button>
-            <p id="error-msg" style="color: red; display: none;">Incorrect Password</p>
+            <p id="error-msg" style="color: red; display: none; margin-top: 10px;">Incorrect Password</p>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h3>Table of Contents</h3>
-                <button id="close-sidebar" class="mobile-only">×</button>
+                <button id="close-sidebar">×</button>
             </div>
             <div id="toc-list"></div>
         </div>
@@ -33,20 +33,22 @@
             <div class="top-bar">
                 <button id="toggle-sidebar">☰ Chapters</button>
                 <div class="settings">
+                    <select id="chapter-select" style="margin-right: 10px;" class="mobile-hidden"></select>
                     <button onclick="toggleTheme()">🌓</button>
                 </div>
             </div>
             
             <div id="reader-container">
-                <h1 id="chapter-title">Select a Chapter</h1>
-                <div id="chapter-content" class="markdown-body">
-                    <!-- Content goes here -->
-                </div>
-                
-                <div class="controls">
-                    <button id="prev-btn" disabled>← Previous</button>
-                    <select id="chapter-select"></select>
-                    <button id="next-btn" disabled>Next →</button>
+                <div class="reader-wrapper">
+                    <h1 id="chapter-title">Select a Chapter</h1>
+                    <div id="chapter-content" class="markdown-body">
+                        <!-- Content goes here -->
+                    </div>
+                    
+                    <div class="nav-controls">
+                        <button id="prev-btn" class="nav-btn" disabled>← Previous</button>
+                        <button id="next-btn" class="nav-btn" disabled>Next →</button>
+                    </div>
                 </div>
             </div>
         </div>

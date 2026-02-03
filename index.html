@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Reader</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Restricted Access</h2>
+            <p>Enter password to read:</p>
+            <input type="password" id="password-input" placeholder="Password...">
+            <button onclick="checkPassword()">Unlock</button>
+            <p id="error-msg" style="color: red; display: none;">Incorrect Password</p>
+        </div>
+    </div>
+
+    <div id="app-container" style="display: none;">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Table of Contents</h3>
+                <button id="close-sidebar" class="mobile-only">×</button>
+            </div>
+            <div id="toc-list"></div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <button id="toggle-sidebar">☰ Chapters</button>
+                <div class="settings">
+                    <button onclick="toggleTheme()">🌓</button>
+                </div>
+            </div>
+            
+            <div id="reader-container">
+                <h1 id="chapter-title">Select a Chapter</h1>
+                <div id="chapter-content" class="markdown-body">
+                    <!-- Content goes here -->
+                </div>
+                
+                <div class="controls">
+                    <button id="prev-btn" disabled>← Previous</button>
+                    <select id="chapter-select"></select>
+                    <button id="next-btn" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
